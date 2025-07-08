@@ -118,13 +118,3 @@ input[type="date"] {
 }
 
 /* Responsive layout: still 3+2 columns on phones */
-@media (max-width: 600px) {
-  .timer {
-    grid-template-columns: repeat(3, 1fr); /* still 3 columns */
-  }
-
-  .timer div:nth-child(4),
-  .timer div:nth-child(5) {
-    grid-column: span 1;
-  }
-}
