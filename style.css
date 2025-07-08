@@ -60,3 +60,12 @@ label {
   color: #444;
   margin-top: 1rem;
 }
+
+.timer div, .total-time ul li {
+  animation: pop-in 0.6s ease-out;
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
