@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GATE 2026 Countdown</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#002147" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="icon-192.png">
 </head>
 <body>
   <div class="container">
     <h1>GATE 2026 Countdown</h1>
-
-    <label for="datePicker">Select Target Date:</label>
-    <input type="date" id="datePicker" />
-
+    <input type="date" id="datePicker">
+    
     <div class="timer">
       <div><span id="months">0</span><label>Months</label></div>
       <div><span id="weeks">0</span><label>Weeks</label></div>
@@ -24,15 +22,20 @@
       <div><span id="seconds">0</span><label>Seconds</label></div>
     </div>
 
-    <div class="total-time"></div><p class="note">Stay consistent. You’re getting closer every second.</p>
+    <div class="total-time">
+      <h3>Total Time Left:</h3>
+      <div class="timer">
+        <div><span id="total-months">0</span><label>Total Months</label></div>
+        <div><span id="total-weeks">0</span><label>Total Weeks</label></div>
+        <div><span id="total-days">0</span><label>Total Days</label></div>
+        <div><span id="total-hours">0</span><label>Total Hours</label></div>
+        <div><span id="total-seconds">0</span><label>Total Seconds</label></div>
+      </div>
+    </div>
+
+    <p class="note">Stay consistent. You’re getting closer every second.</p>
   </div>
 
   <script src="script.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('Service Worker registered'));
-    }
-  </script>
 </body>
 </html>
