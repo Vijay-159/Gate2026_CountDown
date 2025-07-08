@@ -28,43 +28,23 @@ h1 {
 
 .timer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns for top row */
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin: 20px 0;
 }
 
-/* Force last two (hours and seconds) into new row, 2 columns */
-.timer div:nth-child(4),
-.timer div:nth-child(5) {
+.timer .small {
   grid-column: span 1;
 }
 
-/* Place Hours & Seconds side by side in new row */
-.timer div:nth-child(4) {
-  grid-column-start: 1;
-  grid-column-end: 2;
-}
-
-.timer div:nth-child(5) {
-  grid-column-start: 2;
-  grid-column-end: 4;
-}
-
-.timer div {
-  background-color: #FFF0B3;
-  border-radius: 16px;
-  padding: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  animation: pop-in 0.6s ease-out;
-  min-width: 0;
+.timer .wide {
+  grid-column: span 3;
 }
 
 .timer span {
-  font-size: clamp(0.8rem, 4vw, 1.6rem);
+  font-size: clamp(0.9rem, 4vw, 1.6rem);
   font-weight: bold;
   display: block;
-  max-width: 100%;
-  word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word;
   white-space: normal;
@@ -77,16 +57,18 @@ h1 {
   color: #333;
 }
 
+.timer div {
+  background-color: #FFF0B3;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  animation: pop-in 0.6s ease-out;
+}
+
 .total-time h3 {
   margin-top: 30px;
   font-size: 1.2rem;
   color: #002147;
-}
-
-.note {
-  font-style: italic;
-  color: #555;
-  margin-top: 20px;
 }
 
 input[type="date"] {
@@ -96,14 +78,6 @@ input[type="date"] {
   border: 1px solid #ccc;
   margin-bottom: 15px;
 }
-
-/* Wide boxes for hours and seconds (second row) */
-.timer .wide {
-  grid-column: span 3; /* Use all 3 columns */
-}
-
-/* Stack everything on mobile */
-
 
 /* Animation */
 @keyframes pop-in {
@@ -117,4 +91,13 @@ input[type="date"] {
   }
 }
 
-/* Responsive layout: still 3+2 columns on phones */
+/* Mobile: maintain layout with 3-column grid */
+@media (max-width: 600px) {
+  .timer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .timer .wide {
+    grid-column: span 3;
+  }
+}
