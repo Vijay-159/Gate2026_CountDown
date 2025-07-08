@@ -1,0 +1,62 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #002147;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+  flex-direction: column;
+}
+
+.container {
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+#datePicker {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.timer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.timer div {
+  background-color: #fff0b3;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.timer span {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
+
+.timer label {
+  font-size: 0.9rem;
+}
+
+.note {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 1rem;
+}
