@@ -1,7 +1,5 @@
-
 const datePicker = document.getElementById("datePicker");
 
-// Default target date in IST (8 Feb 2026, 9:00 AM IST)
 const DEFAULT_DATE = "2026-02-08";
 
 function getSavedDate() {
@@ -19,17 +17,15 @@ datePicker.addEventListener("change", () => {
   saveDate(selectedDate);
 });
 
-// Convert to IST from UTC (adds +5:30 hours)
 function getCurrentTimeInIST() {
   const now = new Date();
   const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-  const istOffset = 5.5 * 60 * 60000; // IST offset
+  const istOffset = 5.5 * 60 * 60000;
   return new Date(utc + istOffset);
 }
 
 function getTargetTimeInIST(dateStr) {
-  // Assume 9:00 AM IST as default exam start time
-  return new Date(`${dateStr}T03:30:00Z`); // 9:00 AM IST = 03:30 UTC
+  return new Date(`${dateStr}T03:30:00Z`);
 }
 
 function updateCountdown() {
@@ -49,7 +45,7 @@ function updateCountdown() {
   const totalHours = Math.floor(totalMinutes / 60);
   const totalDays = Math.floor(totalHours / 24);
   const totalWeeks = Math.floor(totalDays / 7);
-  const totalMonths = Math.floor(totalDays / 30.44); // Approx
+  const totalMonths = Math.floor(totalDays / 30.44);
 
   const seconds = totalSeconds % 60;
   const minutes = totalMinutes % 60;
@@ -63,16 +59,11 @@ function updateCountdown() {
   document.getElementById("minutes").textContent = minutes;
   document.getElementById("seconds").textContent = seconds;
 
-  document.querySelector(".total-time").innerHTML = `
-    <h3>Total Time Left:</h3>
-    <ul>
-      <li><strong>${totalMonths}</strong> months</li>
-      <li><strong>${totalWeeks}</strong> weeks</li>
-      <li><strong>${totalDays}</strong> days</li>
-      <li><strong>${totalHours}</strong> hours</li>
-      <li><strong>${totalSeconds}</strong> seconds</li>
-    </ul>
-  `;
+  document.getElementById("total-months").textContent = totalMonths;
+  document.getElementById("total-weeks").textContent = totalWeeks;
+  document.getElementById("total-days").textContent = totalDays;
+  document.getElementById("total-hours").textContent = totalHours;
+  document.getElementById("total-seconds").textContent = totalSeconds;
 }
 
 setInterval(updateCountdown, 1000);
