@@ -43,7 +43,7 @@ h1 {
 }
 
 .timer span {
-  font-size: clamp(0.8rem, 4vw, 1.6rem); /* Adaptive font */
+  font-size: clamp(0.8rem, 4vw, 1.6rem); /* Adaptive font size */
   font-weight: bold;
   display: block;
   max-width: 100%;
@@ -89,5 +89,18 @@ input[type="date"] {
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* Wide boxes for big values like Total Days & Total Seconds */
+.timer .wide {
+  grid-column: span 2;
+  width: 100%;
+}
+
+/* For small screens revert to single column */
+@media (max-width: 500px) {
+  .timer .wide {
+    grid-column: span 1;
   }
 }
