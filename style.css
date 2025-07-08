@@ -39,20 +39,20 @@ h1 {
   padding: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   animation: pop-in 0.6s ease-out;
-  min-width: 0; /* Allows flex shrink */
+  min-width: 0;
 }
 
 .timer span {
-  font-size: clamp(1rem, 4vw, 1.6rem); /* Auto scaling based on screen width */
+  font-size: clamp(0.8rem, 4vw, 1.6rem); /* Adaptive font */
   font-weight: bold;
   display: block;
+  max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word;
-  max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  white-space: normal;
+  line-height: 1.2;
+  padding: 0 2px;
 }
 
 .timer label {
