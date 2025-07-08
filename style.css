@@ -86,14 +86,7 @@ input[type="date"] {
 }
 
 /* Stack everything on mobile */
-@media (max-width: 600px) {
-  .timer {
-    grid-template-columns: 1fr;
-  }
-  .timer .wide {
-    grid-column: span 1;
-  }
-}
+
 
 /* Animation */
 @keyframes pop-in {
