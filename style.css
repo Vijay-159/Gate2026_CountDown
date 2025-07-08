@@ -28,9 +28,26 @@ h1 {
 
 .timer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* First row = 3 cols */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for top row */
   gap: 12px;
   margin: 20px 0;
+}
+
+/* Force last two (hours and seconds) into new row, 2 columns */
+.timer div:nth-child(4),
+.timer div:nth-child(5) {
+  grid-column: span 1;
+}
+
+/* Place Hours & Seconds side by side in new row */
+.timer div:nth-child(4) {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.timer div:nth-child(5) {
+  grid-column-start: 2;
+  grid-column-end: 4;
 }
 
 .timer div {
@@ -97,5 +114,17 @@ input[type="date"] {
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* Responsive layout: still 3+2 columns on phones */
+@media (max-width: 600px) {
+  .timer {
+    grid-template-columns: repeat(3, 1fr); /* still 3 columns */
+  }
+
+  .timer div:nth-child(4),
+  .timer div:nth-child(5) {
+    grid-column: span 1;
   }
 }
